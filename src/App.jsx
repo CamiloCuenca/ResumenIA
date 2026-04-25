@@ -2,14 +2,28 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import './App.css'
 import { HeaderHelp } from './components/HeaderHelp'
 import { ChatPanel } from './components/ChatPanel'
+import { ResumenBot } from './components/ResumenBot'
 import { ReferenciaCard } from './components/ReferenciaCard'
 import { UploadForm } from './components/UploadForm'
 import { StatusBanner } from './components/StatusBanner'
 import { Toast } from './components/Toast'
 
 const FORMATOS = ['APA', 'MLA', 'IEEE', 'Chicago', 'Vancouver']
+const THEME_KEY = 'xtractia-theme'
+
+function normalizeApiPayload(payload) {
+  const candidate = Array.isArray(payload) ? payload.find((item) => item && typeof item === 'object') : payload
+  return candidate && typeof candidate === 'object' ? candidate : null
+}
 
 export default function App() {
+  const [theme, setTheme] = useState(() => {
+    const storedTheme = localStorage.getItem(THEME_KEY)
+    if (storedTheme === 'light' || storedTheme === 'dark') {
+      return storedTheme
+    }
+    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+  })
   const [file, setFile] = useState(null)
   const [chat, setChat] = useState([
     {
@@ -31,6 +45,15 @@ export default function App() {
     for (let i = chat.length - 1; i >= 0; i -= 1) {
       if (chat[i].data?.cita) {
         return chat[i].data.cita
+      }
+    }
+    return null
+  }, [chat])
+
+  const ultimoAnalisis = useMemo(() => {
+    for (let i = chat.length - 1; i >= 0; i -= 1) {
+      if (chat[i].data && typeof chat[i].data === 'object') {
+        return chat[i].data
       }
     }
     return null
@@ -95,7 +118,7 @@ export default function App() {
     let response = null
     let data = null
     try {
-      response = await fetch('http://localhost:5678/webhook-test/cc6c7ad0-c4a3-42a0-be3e-72218abafc63', {
+      response = await fetch('https://camilocuenca.app.n8n.cloud/webhook/cc6c7ad0-c4a3-42a0-be3e-72218abafc63', {
         method: 'POST',
         body: formData,
         signal: controller.signal,
@@ -107,7 +130,8 @@ export default function App() {
       }
 
       try {
-        data = await response.json()
+        const rawData = await response.json()
+        data = normalizeApiPayload(rawData)
       } catch {
         data = null
       }
@@ -160,13 +184,19 @@ export default function App() {
     }
   }, [chat, loading])
 
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+    localStorage.setItem(THEME_KEY, theme)
+  }, [theme])
+
   return (
     <div className="app-shell">
       <Toast show={Boolean(toast)} message={toast} />
       <main className="app-layout">
         <section className="main-column">
-          <HeaderHelp />
-          <ChatPanel chat={chat} onCopy={handleCopy} chatEndRef={chatEndRef} />
+          <HeaderHelp theme={theme} onToggleTheme={() => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))} />
+          <ChatPanel chat={chat} chatEndRef={chatEndRef} />
+          {ultimoAnalisis && <ResumenBot data={ultimoAnalisis} onCopy={handleCopy} />}
           <StatusBanner type={status.type} message={status.message} />
           <UploadForm
             file={file}

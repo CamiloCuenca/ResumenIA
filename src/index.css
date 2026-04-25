@@ -1,7 +1,14 @@
 :root {
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  color: #e6efff;
-  background: radial-gradient(circle at top, #142a52, #071126 58%);
+  --app-text: #e6efff;
+  --app-bg: radial-gradient(circle at top, #142a52, #071126 58%);
+  color: var(--app-text);
+  background: var(--app-bg);
+}
+
+:root[data-theme='light'] {
+  --app-text: #0f172a;
+  --app-bg: radial-gradient(circle at top, #f3f8ff, #eaf2ff 62%);
 }
 
 * {
@@ -12,6 +19,9 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100svh;
+  color: var(--app-text);
+  background: var(--app-bg);
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 #root {

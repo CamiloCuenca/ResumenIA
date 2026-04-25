@@ -1,12 +1,11 @@
 import { MessageSquareText } from 'lucide-react'
 import { ChatBubble } from './ChatBubble'
-import { ResumenBot } from './ResumenBot'
 
 function SpinnerInline() {
   return <span className="spinner-inline" aria-hidden="true" />
 }
 
-export function ChatPanel({ chat, onCopy, chatEndRef }) {
+export function ChatPanel({ chat, chatEndRef }) {
   return (
     <section className="card chat-card">
       <div className="section-title">
@@ -17,7 +16,7 @@ export function ChatPanel({ chat, onCopy, chatEndRef }) {
         {chat.map((msg, index) => (
           <ChatBubble sender={msg.sender} key={index}>
             {msg.sender === 'bot' && msg.data ? (
-              <ResumenBot data={msg.data} onCopy={onCopy} />
+              '✅ Análisis listo. Revisa las pestañas de resultados debajo del chat.'
             ) : msg.isLoading ? (
               <span className="loading-inline">
                 Procesando documento...

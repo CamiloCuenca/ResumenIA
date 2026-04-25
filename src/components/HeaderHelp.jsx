@@ -1,11 +1,19 @@
-import { FileUp, SendHorizontal, Sparkles } from 'lucide-react'
+import { FileUp, Moon, SendHorizontal, Sparkles, Sun } from 'lucide-react'
 
-export function HeaderHelp() {
+export function HeaderHelp({ theme, onToggleTheme }) {
+  const isDark = theme === 'dark'
+
   return (
     <header className="card header-card">
       <div className="title-row">
-        <Sparkles size={24} />
-        <h1>Asistente de lectura PDF</h1>
+        <div className="title-main">
+          <Sparkles size={24} />
+          <h1>XtractIA Text</h1>
+        </div>
+        <button type="button" className="theme-toggle-btn" onClick={onToggleTheme} aria-label="Cambiar tema">
+          {isDark ? <Sun size={16} /> : <Moon size={16} />}
+          <span>{isDark ? 'Modo claro' : 'Modo oscuro'}</span>
+        </button>
       </div>
       <p className="subtitle">
         Obtén un resumen estructurado y una referencia bibliográfica de tu documento en segundos.
