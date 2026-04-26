@@ -635,11 +635,557 @@
   border: 1px solid #2a3f6f;
 }
 
+/* ===== Estilos para Autoría ===== */
+.authorship-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.section-title h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #f8fbff;
+}
+
+.authorship-section,
+.transparency-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.subsection-title {
+  margin: 0;
+  font-size: 0.92rem;
+  color: #93c5fd;
+  font-weight: 600;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #2a3f6f;
+}
+
+.authors-list,
+.participants-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.author-item,
+.participant-item {
+  background: #0c1834;
+  border: 1px solid #2a3f6f;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.author-header,
+.participant-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.author-icon,
+.participant-icon {
+  color: #60a5fa;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.author-info,
+.participant-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.author-name,
+.participant-name {
+  margin: 0;
+  color: #f8fbff;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.author-role,
+.participant-role {
+  display: inline-block;
+  color: #93c5fd;
+  font-size: 0.8rem;
+  padding: 2px 6px;
+  background: #1a2942;
+  border-radius: 4px;
+  width: fit-content;
+  text-transform: capitalize;
+}
+
+.author-evidence,
+.participant-evidence {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #d1e3ff;
+  line-height: 1.4;
+  padding: 8px;
+  background: rgba(15, 58, 107, 0.3);
+  border-left: 3px solid #60a5fa;
+  border-radius: 4px;
+}
+
+/* ===== Estilos para Contexto Editorial ===== */
+.editorial-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.editorial-item {
+  background: #0c1834;
+  border: 1px solid #2a3f6f;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.editorial-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #93c5fd;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.editorial-label svg {
+  color: #60a5fa;
+}
+
+.editorial-value {
+  margin: 0;
+  color: #f8fbff;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.editorial-relevance {
+  background: #0c1834;
+  border: 1px solid #2a3f6f;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.editorial-relevance h4 {
+  margin: 0;
+  color: #93c5fd;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.editorial-relevance p {
+  margin: 0;
+  color: #dbeafe;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* ===== Estilos para Referencias ===== */
+.references-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.format-badge {
+  display: inline-block;
+  background: #1a2942;
+  color: #60a5fa;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+.references-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.references-subsection {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #93c5fd;
+  font-weight: 600;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #2a3f6f;
+}
+
+.references-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.references-list.external {
+  gap: 10px;
+}
+
+.reference-item {
+  background: #0c1834;
+  border: 1px solid #2a3f6f;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.reference-toggle {
+  width: 100%;
+  border: none;
+  background: none;
+  padding: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  text-align: left;
+  cursor: pointer;
+  color: #f8fbff;
+  transition: background-color 0.2s;
+}
+
+.reference-toggle:hover {
+  background-color: #1a2942;
+}
+
+.ref-number {
+  display: inline-block;
+  min-width: 40px;
+  color: #60a5fa;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.ref-text,
+.ref-title-external {
+  flex: 1;
+  color: #dbeafe;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.ref-year {
+  color: #93c5fd;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.reference-details {
+  border-top: 1px solid #2a3f6f;
+  padding: 12px;
+  background: rgba(15, 58, 107, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ref-formatted,
+.ref-note {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ref-title {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #93c5fd;
+  font-weight: 600;
+}
+
+.ref-content {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #dbeafe;
+  line-height: 1.5;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  border-left: 3px solid #60a5fa;
+}
+
+.ref-authors {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #dbeafe;
+}
+
+.ref-doi {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+
+.doi-link {
+  color: #60a5fa;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.doi-link:hover {
+  text-decoration: underline;
+  color: #7dd3fc;
+}
+
+.note-title {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #93c5fd;
+  font-weight: 600;
+}
+
+.note-text {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #dbeafe;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  border-left: 3px solid #fbbf24;
+  line-height: 1.4;
+}
+
+.copy-small-btn {
+  align-self: flex-start;
+  border: 1px solid #35558f;
+  background: #13264a;
+  color: #e6efff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s;
+}
+
+.copy-small-btn:hover {
+  background: #1a3456;
+  border-color: #60a5fa;
+}
+
+/* ===== Estilos para Ética y Transparencia ===== */
+.ethics-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ethics-item {
+  background: #0c1834;
+  border: 1px solid #2a3f6f;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.ethics-toggle {
+  width: 100%;
+  border: none;
+  background: none;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+  cursor: pointer;
+  color: #f8fbff;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.ethics-toggle:hover {
+  background-color: #1a2942;
+}
+
+.toggle-icon {
+  color: #60a5fa;
+  font-size: 0.8rem;
+  min-width: 12px;
+}
+
+.ethics-title {
+  flex: 1;
+  color: #dbeafe;
+  font-size: 0.95rem;
+}
+
+.ethics-content {
+  margin: 0;
+  padding: 12px;
+  background: rgba(15, 58, 107, 0.2);
+  border-top: 1px solid #2a3f6f;
+  color: #dbeafe;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.transparency-title {
+  margin: 0;
+  font-size: 0.92rem;
+  color: #93c5fd;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #2a3f6f;
+}
+
+.transparency-title svg {
+  color: #60a5fa;
+}
+
+.transparency-item {
+  background: #0c1834;
+  border: 1px solid #2a3f6f;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.transparency-label {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #60a5fa;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.transparency-label svg {
+  color: #fbbf24;
+}
+
+.transparency-list {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.transparency-list li {
+  color: #dbeafe;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
 [data-theme='light'] .card {
   background: #ffffff;
   border-color: #d5e1f3;
   box-shadow: 0 10px 28px rgba(16, 36, 70, 0.1);
 }
+
+[data-theme='light'] .authorship-card,
+[data-theme='light'] .author-item,
+[data-theme='light'] .participant-item,
+[data-theme='light'] .editorial-card,
+[data-theme='light'] .editorial-item,
+[data-theme='light'] .editorial-relevance,
+[data-theme='light'] .references-panel,
+[data-theme='light'] .reference-item,
+[data-theme='light'] .reference-details,
+[data-theme='light'] .ethics-card,
+[data-theme='light'] .ethics-item,
+[data-theme='light'] .transparency-item {
+  background: #f8fbff;
+  border-color: #c6d7ef;
+  color: #1e293b;
+}
+
+[data-theme='light'] .subsection-title,
+[data-theme='light'] .references-subsection,
+[data-theme='light'] .transparency-title {
+  color: #1e40af;
+  border-bottom-color: #cedef5;
+}
+
+[data-theme='light'] .author-name,
+[data-theme='light'] .participant-name,
+[data-theme='light'] .editorial-value,
+[data-theme='light'] .ref-text,
+[data-theme='light'] .ref-title-external,
+[data-theme='light'] .ethics-title {
+  color: #0f172a;
+}
+
+[data-theme='light'] .author-role,
+[data-theme='light'] .participant-role {
+  background: #e0e7ff;
+  color: #1e40af;
+  border-color: #c7d2fe;
+}
+
+[data-theme='light'] .author-evidence,
+[data-theme='light'] .participant-evidence,
+[data-theme='light'] .ethics-content,
+[data-theme='light'] .ref-content,
+[data-theme='light'] .note-text {
+  background: rgba(59, 130, 246, 0.05);
+  color: #334155;
+  border-color: #93c5fd;
+}
+
+[data-theme='light'] .reference-toggle:hover {
+  background-color: #f0f9ff;
+}
+
+[data-theme='light'] .ethics-toggle:hover {
+  background-color: #f0f9ff;
+}
+
+[data-theme='light'] .copy-small-btn,
+[data-theme='light'] .format-badge {
+  background: #f0f9ff;
+  color: #1e40af;
+  border-color: #93c5fd;
+}
+
+[data-theme='light'] .copy-small-btn:hover {
+  background: #e0e7ff;
+  border-color: #1e40af;
+}
+
+[data-theme='light'] .ref-authors,
+[data-theme='light'] .transparency-label,
+[data-theme='light'] .transparency-list li {
+  color: #334155;
+}
+
+[data-theme='light'] .ref-year,
+[data-theme='light'] .editorial-label {
+  color: #1e40af;
+}
+
+
 
 [data-theme='light'] .title-row {
   color: #2563eb;
